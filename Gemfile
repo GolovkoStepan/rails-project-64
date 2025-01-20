@@ -13,18 +13,22 @@ gem 'turbo-rails'
 gem 'bootsnap', require: false
 
 group :development, :test do
-  gem 'brakeman', require: false
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
-  gem 'rubocop-rails-omakase', require: false
   gem 'sqlite3'
 end
 
 group :development do
+  gem 'brakeman', require: false
+  gem 'faker'
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-rails-omakase', require: false
+  gem 'slim_lint', require: false
   gem 'web-console'
 end
 
 group :test do
   gem 'capybara'
+  gem 'minitest-power_assert'
   gem 'selenium-webdriver'
 end
 
