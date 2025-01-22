@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'puma', '>= 5.0'
-gem 'rails', '~> 7.2.2', '>= 7.2.2.1'
+gem 'rails', '~> 8.0.1'
 
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
