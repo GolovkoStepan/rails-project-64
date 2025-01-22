@@ -1,31 +1,59 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  actions:
+    back: Back
+    delete:
+      confirm: Are you sure?
+
+  auth:
+    log_in: Log In
+    log_out: Log Out
+    sign_up: Sign Up
+
+  comments:
+    answer: Answer
+    created: Comment was created.
+    creation:
+      errors:
+        one: "%{count} error prohibited this comment from being saved:"
+        other: "%{count} errors prohibited this comment from being saved:"
+    delete: Delete
+    destroyed: Comment was deleted.
+    label: 'Leave your comment here:'
+    submit: Publish Comment
+
+  footer:
+    contact_us: 'Contact us at: support@example.com'
+    powered: Powered by Ruby on Rails | Devise | Bootstrap
+
+  posts:
+    actions:
+      created: Post was successfully created.
+      creation:
+        errors:
+          one: "%{count} error prohibited this post from being saved:"
+          other: "%{count} errors prohibited this post from being saved:"
+      delete: Delete
+      deleted: Post was successfully destroyed.
+      editing: Editing Post
+      update: Update
+      updated: Post was successfully updated.
+      submit: Publish
+    all: All Posts
+    body: Body
+    by: By
+    category: Category
+    liked: Liked
+    new: New post
+    published: Published
+    posts: Posts
+    symbols: symbols
+    title: Title
+
+  time:
+    formats:
+      short: "%m.%d.%Y %H:%M"
+
+  views:
+    posts:
+      index:
+        title: Collective blog

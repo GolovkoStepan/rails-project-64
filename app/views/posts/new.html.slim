@@ -1,0 +1,9 @@
+nav[aria-label="breadcrumb"]
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t('posts.posts'), posts_path
+    li.breadcrumb-item.active[aria-current="page"] = t('posts.new')
+
+h1.mb-3 = t('posts.new')
+
+== render 'form', post: @post

@@ -1,0 +1,16 @@
+h2.mb-4 = t('devise.sessions.new.sign_in')
+
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = f.error_notification
+  - if f.object.errors[:base].present?
+    = f.error_notification message: f.object.errors[:base].to_sentence
+
+  .form-inputs
+    = f.input :email
+    = f.input :password
+
+    - if devise_mapping.rememberable?
+      = f.input :remember_me, as: :boolean
+
+  .form-actions.mt-3
+    = f.button :submit, t('devise.shared.links.sign_in'), class: 'btn btn-primary'

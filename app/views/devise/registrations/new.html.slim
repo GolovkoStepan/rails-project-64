@@ -1,0 +1,14 @@
+h2.mb-4 = t('devise.registrations.new.sign_up')
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.error_notification
+  - if f.object.errors[:base].present?
+    = f.error_notification message: f.object.errors[:base].to_sentence
+
+  .form-inputs
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+
+  .form-actions.mb-3
+    = f.button :submit, t('devise.registrations.new.sign_up'), class: 'btn btn-primary'

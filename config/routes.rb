@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  devise_for :users
+
+  root 'posts#index'
+
+  resources :posts do
+    resources :comments, shallow: true, only: %i[create destroy]
+    resources :likes, only: %i[create destroy]
+  end
 end

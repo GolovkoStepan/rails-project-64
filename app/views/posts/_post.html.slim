@@ -1,0 +1,21 @@
+.card.my-3
+  .card-body
+    h5.card-title
+      = link_to post.title, post, class: 'link-dark text-decoration-none'
+
+    p.card-text
+      = truncate post.body, length: 300
+
+    small.d-flex.text-secondary
+      .likes-section.me-3
+        = post.post_likes_count
+        i.bi.bi-hand-thumbs-up
+
+      .me-3
+        = l(post.created_at, format: :short)
+
+      .me-3
+        = post.creator.email
+
+      .ms-auto
+        = post.category.name

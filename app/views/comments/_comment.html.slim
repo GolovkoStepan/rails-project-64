@@ -1,0 +1,39 @@
+.card.mb-2
+  .card-header.border-0
+    small.d-flex.text-secondary
+      .me-2
+        = comment.user.email
+
+      .me-3
+        = l(comment.created_at, format: :short)
+
+      .ms-auto
+        - if current_user&.owns?(comment)
+          = link_to comment_path(comment),
+                  data: { turbo_method: :delete, turbo_confirm: t('actions.delete.confirm') } do
+            i.bi.bi-x.text-danger
+
+  .card-body
+    .card-text
+      = comment.content
+
+  - if user_signed_in?
+    .card-footer.border-0
+      a.text-lowercase.collapsed [
+        data-bs-toggle='collapse'
+        href='#' type='button'
+        data-bs-target="#comment-#{comment.id}"
+        aria-expanded='false'
+        aria-controls="comment-#{comment.id}"
+      ]
+        = t('comments.answer')
+
+      div class='collapse mt-2 mb-2' id="comment-#{comment.id}"
+        = render '/comments/form',
+                comment: @post.comments.build(parent_id: comment.id),
+                url: post_comments_path(@post)
+
+  - if comment.has_children?
+    .ms-2.mt-2.me-2
+      = render partial: '/comments/comment',
+              collection: comment.children.order(created_at: :desc).reject(&:new_record?)

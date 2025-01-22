@@ -1,0 +1,11 @@
+nav[aria-label="breadcrumb"]
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t('posts.posts'), posts_path
+    li.breadcrumb-item
+      = link_to truncate(@post.title, length: 20), post_path(@post)
+    li.breadcrumb-item.active[aria-current="page"] = t('posts.actions.editing')
+
+h1.mb-3 = t('posts.actions.editing')
+
+= render 'form', post: @post
