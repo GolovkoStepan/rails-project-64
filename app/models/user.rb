@@ -7,17 +7,9 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :posts,
-           dependent: :restrict_with_error,
-           inverse_of: 'creator'
-
-  has_many :comments,
-           class_name: 'PostComment',
-           dependent: :destroy
-
-  has_many :likes,
-           class_name: 'PostLike',
-           dependent: :destroy
+  has_many :posts, dependent: :restrict_with_error, inverse_of: 'creator'
+  has_many :comments, class_name: 'PostComment', dependent: :destroy
+  has_many :likes, class_name: 'PostLike', dependent: :destroy
 
   def owns?(resource)
     return false unless resource.persisted?

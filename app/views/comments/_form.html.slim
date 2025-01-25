@@ -4,7 +4,7 @@
     = f.error_notification message: f.object.errors[:base].to_sentence
 
   .form-inputs
-    = f.input :content, input_html: { maxlength: 255 }
+    = f.input :content, hint: "5-255 #{t('posts.symbols')}", input_html: { maxlength: 255 }
     = f.hidden_field :parent_id
 
   .form-actions
