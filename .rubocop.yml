@@ -1,8 +1,10 @@
-require:
+plugins:
   - rubocop-rails
   - rubocop-capybara
-  - rubocop-slim
   - rubocop-performance
+
+require:
+  - rubocop-slim
 
 AllCops:
   NewCops: enable
